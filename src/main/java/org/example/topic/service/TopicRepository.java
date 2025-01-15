@@ -1,6 +1,6 @@
-package org.example.service;
+package org.example.topic.service;
 
-import org.example.objects.Topic;
+import org.example.topic.objects.Topic;
 import org.springframework.data.repository.CrudRepository;
 
 

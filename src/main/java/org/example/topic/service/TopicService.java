@@ -3,6 +3,8 @@ package org.example.topic.service;
 import org.example.topic.objects.Topic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,7 @@ TopicRepository topicRepository;
 
         List<Topic> topicList = new ArrayList<>();
          topicRepository.findAll().forEach(topicList::add);
+         Mono<List<Topic>>  topicFlux = Mono.just(topicList).subscribe(topics -> topics.forEach(topic -> topic.setTopicName("New Topics") )).equals();
          return topicList;
     }
     public Topic getById(String id){
